@@ -1,0 +1,37 @@
+---
+title: "gt Alignment"
+author: "Cassidy Bargell"
+date: "6/20/2020"
+output: 
+  tufte::tufte_html:
+    tufte_variant: "envisioned"
+    
+  tufte::tufte_handout: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, tidy = FALSE, cache.extra = packageVersion('tufte'))
+
+library(gt)
+library(tidyverse)
+library(tufte)
+```
+
+## Main Column Title
+
+I want the gt table to be centered in the main column. Right now it spans between the margin and the main column. Using tab_options(table.align='left') puts the table all the way to the left. I would prefer to not save the gt tables as temporary pngs. The r chunk option of fig.align does not seem to work with the gt table. 
+`r margin_note("This is what text in the margin looks like.")`
+```{r, echo=FALSE}
+
+# Random tibble with data
+
+tibble(subject = "Joe",
+       ytreat = "13",
+       ycontrol = "9",
+       ydiff = "+4") %>%
+  
+  # Then, we use the gt function to make it pretty
+  
+  gt()
+```
+
